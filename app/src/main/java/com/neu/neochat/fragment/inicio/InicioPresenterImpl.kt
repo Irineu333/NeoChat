@@ -176,6 +176,7 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
 
                 inicioView.navegarParaContatosFragment()
             }
+
         } else {
 
             //Usuário não existe no database
