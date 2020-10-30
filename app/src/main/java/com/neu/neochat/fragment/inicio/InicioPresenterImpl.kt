@@ -15,7 +15,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.neu.neochat.model.Usuario
 
 /**
@@ -28,8 +30,8 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
     ValueEventListener {
 
     //usuário logado
-    private val currentUser : FirebaseUser?
-    get() =  FirebaseAuth.getInstance().currentUser
+    private val currentUser: FirebaseUser?
+        get() = FirebaseAuth.getInstance().currentUser
 
     //referência do firebase database
     private val database: DatabaseReference = Firebase.database.reference
@@ -83,6 +85,9 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
         }
     }
 
+    private val myUserDatabase = database.child(Usuario.CHILD)
+        .child(currentUser!!.uid)
+
     override fun checkOnDatabase() {
 
         inicioView.setVisibilityProgressBar(View.VISIBLE)
@@ -90,12 +95,20 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
         if (currentUser != null) {
 
             //requisita o firebase database
-            database.child(Usuario.CHILD)
-                .child(currentUser!!.uid)
+            myUserDatabase
                 .addListenerForSingleValueEvent(this)
         } else {
 
             inicioView.showToast("Usuário inválido", Toast.LENGTH_SHORT)
+        }
+    }
+
+    override fun updateToken() {
+        val map = HashMap<String, Any>()
+        currentUser!!.getIdToken(true).addOnCompleteListener { task ->
+            val result = task.result!!.token
+            map["token"] = result!!
+            myUserDatabase.updateChildren(map)
         }
     }
 
