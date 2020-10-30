@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:padding="4dp"
+    android:gravity="bottom"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="4dp"
+        app:contentPadding="6dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark">
+
+        <EditText
+            android:maxLength="300"
+            android:hint="@string/digite_sua_mensagem"
+            android:textSize="15sp"
+            android:padding="2dp"
+            android:textColorHint="#AAFFFFFF"
+            android:id="@+id/sendMessage"
+            android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:autofillHints="@string/autofillHints_sendMessage" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:tint="@color/colorPrimary"
+        android:id="@+id/sendBtn"
+        android:layout_marginEnd="4dp"
+        android:layout_marginVertical="4dp"
+        android:layout_width="35dp"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        android:src="@drawable/ic_send"
+        android:contentDescription="@string/enviar_mensagem" />
+
+</LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginVertical="2dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagePerfil"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src = "@drawable/ic_user"
+            android:contentDescription="@string/fotos_de_perfil" />
+
+        <TextView
+            android:id="@+id/contatoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            app:layout_constraintStart_toEndOf="@+id/imagePerfil"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nome do usuário" />
+
+        <ImageView
+            android:layout_margin="2dp"
+            android:id="@+id/isOnline"
+            android:visibility="gone"
+
+            android:scaleType="fitCenter"
+            android:layout_width="16sp"
+            android:layout_height="16sp"
+            android:src="@drawable/ic_ponto"
+            app:layout_constraintBottom_toBottomOf="@+id/contatoName"
+            app:layout_constraintStart_toEndOf="@+id/contatoName"
+            app:layout_constraintTop_toTopOf="@+id/contatoName"
+            app:layout_constraintVertical_bias="0.5"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/contatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imagePerfil"
+            app:layout_constraintTop_toBottomOf="@+id/contatoName"
+            tools:text="email e/ou telefone" />
+
+        <ImageButton
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:id="@+id/addUser"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            app:srcCompat="@drawable/ic_add_user"
+            android:contentDescription="@string/adicionar_aos_contatos" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

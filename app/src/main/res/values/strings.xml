@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">NeoChat</string>
+
+    <string name="fazer_login">Fazer login</string>
+    <string name="adicionar_contato">Adicionar contato</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+    <string name="configurar">Configurar</string>
+    <string name="noticeRequiredName">Obrigatório fornecer\n algum nome de usuário</string>
+    <string name="alterar">Alterar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="digite_sua_mensagem">Digite sua mensagem</string>
+    <string name="enviar_mensagem">Enviar mensagem</string>
+    <string name="autofillHints_sendMessage">Oi, tudo bom?</string>
+    <string name="adicionar_aos_contatos">Adicionar aos contatos</string>
+    <string name="fotos_de_perfil">Fotos de perfil</string>
+    <string name="voltar_para_contatos">Voltar para contatos</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="sair_da_conta">Sair da conta</string>
+    <string name="mensagens">Mensagens</string>
+</resources>

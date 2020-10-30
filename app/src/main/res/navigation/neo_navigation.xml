@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/neo_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.neu.neochat.fragment.inicio.InicioFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_contatosFragment"
+            app:destination="@id/contatosFragment"
+            app:popUpTo="@id/neo_navigation"
+            app:popUpToInclusive="true"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:enterAnim="@anim/fragment_open_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/contatosFragment"
+        android:name="com.neu.neochat.fragment.contatos.ContatosFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_contatos" >
+        <action
+            android:id="@+id/action_contatosFragment_to_usersFragment"
+            app:destination="@id/usersFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popExitAnim="@anim/fragment_open_exit" />
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_contatosFragment_to_messagesFragment"
+            app:destination="@id/messagesFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popExitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_contatosFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/neo_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.neu.neochat.fragment.users.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_contatosFragment"
+            app:destination="@id/contatosFragment"
+            app:popUpTo="@id/contatosFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.neu.neochat.fragment.messages.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" >
+        <argument
+            android:name="contato"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_messagesFragment_to_contatosFragment"
+            app:destination="@id/contatosFragment"
+            app:popUpTo="@id/contatosFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
