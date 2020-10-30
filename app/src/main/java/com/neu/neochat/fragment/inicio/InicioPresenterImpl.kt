@@ -85,8 +85,8 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
         }
     }
 
-    private val myUserDatabase = database.child(Usuario.CHILD)
-        .child(currentUser!!.uid)
+    private val myUserDatabase : DatabaseReference
+            get() = database.child(Usuario.CHILD).child(currentUser!!.uid)
 
     override fun checkOnDatabase() {
 
