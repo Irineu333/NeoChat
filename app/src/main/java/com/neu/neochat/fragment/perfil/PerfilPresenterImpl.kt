@@ -34,9 +34,9 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
 
     override fun alterarNoDatabase(name: String) {
 
-        var limpo = ""
+        var limpo = name
         while (name.contains("."))
-            limpo = name.replace(".", "")
+            limpo = limpo.replace(".", "")
 
         if (limpo.trim().isNotEmpty())
             myUserDatabaseObject?.let { user ->
