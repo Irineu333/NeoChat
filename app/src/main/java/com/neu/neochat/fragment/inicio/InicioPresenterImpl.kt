@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.ActionCodeSettings
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -85,8 +86,8 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
         }
     }
 
-    private val myUserDatabase : DatabaseReference
-            get() = database.child(Usuario.CHILD).child(currentUser!!.uid)
+    private val myUserDatabase: DatabaseReference
+        get() = database.child(Usuario.CHILD).child(currentUser!!.uid)
 
     override fun checkOnDatabase() {
 
@@ -100,15 +101,6 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
         } else {
 
             inicioView.showToast("Usuário inválido", Toast.LENGTH_SHORT)
-        }
-    }
-
-    override fun updateToken() {
-        val map = HashMap<String, Any>()
-        currentUser!!.getIdToken(true).addOnCompleteListener { task ->
-            val result = task.result!!.token
-            map["token"] = result!!
-            myUserDatabase.updateChildren(map)
         }
     }
 

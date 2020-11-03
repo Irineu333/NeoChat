@@ -16,5 +16,4 @@ interface InicioPresenter {
 
     /** Checa se o usuário logado existe no database */
     fun checkOnDatabase()
-    fun updateToken()
 }

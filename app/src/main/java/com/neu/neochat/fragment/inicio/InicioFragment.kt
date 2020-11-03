@@ -103,7 +103,7 @@ class InicioFragment : Fragment(), View.OnClickListener, InicioView, PerfilBotto
         //inicia detector de presença (online/offline)
         getApplication().startPresenceDetector()
 
-        inicioPresenter.updateToken()
+        getApplication().updateToken()
 
         //ir para ContatosFragment
         findNavController().navigate(
