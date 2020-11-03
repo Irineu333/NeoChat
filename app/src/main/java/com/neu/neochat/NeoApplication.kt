@@ -4,6 +4,7 @@ import android.app.Application
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.neu.neochat.model.Usuario
@@ -17,25 +18,29 @@ class NeoApplication : Application() {
 
     fun startPresenceDetector() {
 
-        val userRef = Firebase.database.reference.child(Usuario.CHILD)
-            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+        FirebaseAuth.getInstance().currentUser?.let { user ->
+            val userRef = Firebase.database.reference.child(Usuario.CHILD)
+                .child(user.uid)
 
-        detectarOnline(userRef)
-        detectarOffline(userRef)
+            detectarOnline(userRef)
+            detectarOffline(userRef)
+        }
+
     }
 
     private fun detectarOnline(userRef: DatabaseReference) {
         val map = HashMap<String, Any>()
         map["status"] = "online"
-        userRef.updateChildren(map).addOnSuccessListener {
+        userRef.updateChildren(map).addOnCompleteListener {
             detectarOffline(userRef)
         }
     }
 
     private fun detectarOffline(userRef: DatabaseReference) {
         val map = HashMap<String, Any>()
-        map["status"] = "off"
-        userRef.onDisconnect().updateChildren(map).addOnSuccessListener {
+        map["status"] = "off-line"
+
+        userRef.onDisconnect().updateChildren(map).addOnCompleteListener {
             detectarOnline(userRef)
         }
     }
