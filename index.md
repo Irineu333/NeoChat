@@ -6,9 +6,8 @@ Um chat simples utlizando as tecnologias do Firebase, como Firebase Authenticati
 
 A aplicação é 100% desenvolvida em Kotlin, enquanto o back-end do Functions usa JavaScript, Node.js 12
 
-```markdown
-#kotlin
-
+```kotlin
+# kotlin code exemple
   override fun requireLogin() {
 
         inicioView.setVisibilityProgressBar(View.INVISIBLE)
@@ -24,8 +23,3 @@ A aplicação é 100% desenvolvida em Kotlin, enquanto o back-end do Functions u
 ```
 
 Contribua em [Projeto](https://github.com/Irineu333/NeoChat) e baixe o apk em [Releases](https://github.com/Irineu333/NeoChat/releases)
-
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
