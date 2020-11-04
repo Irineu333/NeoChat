@@ -1,36 +1,30 @@
-## Welcome to GitHub Pages
+## Download
 
-You can use the [editor on GitHub](https://github.com/Irineu333/NeoChat/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Um chat simples utlizando as tecnologias do Firebase, como Firebase Authentication, Firebase Realtime Database, Firebase Cloud Messaging e Firebase Functions.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Linguagens
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+A aplicação é 100% desenvolvida em Kotlin, enquanto o back-end do Functions usa JavaScript, Node.js 12
 
 ```markdown
-Syntax highlighted code block
+#kotlin
 
-# Header 1
-## Header 2
-### Header 3
+  override fun requireLogin() {
 
-- Bulleted
-- List
+        inicioView.setVisibilityProgressBar(View.INVISIBLE)
 
-1. Numbered
-2. List
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.GoogleBuilder().build(),
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.PhoneBuilder().build()
+        )
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+        inicioView.requireLogin(providers)
+    }
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Contribua em [Projeto](https://github.com/Irineu333/NeoChat) e baixe o apk em [Releases](https://github.com/Irineu333/NeoChat/releases)
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Irineu333/NeoChat/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
