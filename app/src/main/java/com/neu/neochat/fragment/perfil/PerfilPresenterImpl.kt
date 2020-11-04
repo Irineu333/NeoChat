@@ -51,7 +51,10 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
 
                     val builder = UserProfileChangeRequest.Builder()
                     builder.displayName = user.name
-                    currentUser!!.updateProfile(builder.build())
+                    currentUser.updateProfile(builder.build())
+
+                    user.uid = currentUser.uid
+                    user.email = currentUser.email ?: ""
 
                     meyUserDatabase.setValue(user).addOnSuccessListener {
                         perfilView.fecharBottomSheet()

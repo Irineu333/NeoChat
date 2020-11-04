@@ -71,7 +71,7 @@ class FCMService : FirebaseMessagingService() {
                     )
                     notificationChannel.description = "Notification channel"
                     notificationChannel.enableLights(true)
-                    notificationChannel.vibrationPattern = longArrayOf(1000, 1000, 1000, 1000, 1000)
+                    notificationChannel.vibrationPattern = longArrayOf(500, 500)
                     notificationChannel.lightColor = Color.BLUE
 
                     notificationManager.createNotificationChannel(notificationChannel)
