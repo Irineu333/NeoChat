@@ -2,6 +2,7 @@ package com.neu.neochat.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.neu.neochat.NeoApplication
 import com.neu.neochat.R
 
 /**
@@ -17,5 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         //iniciar fragments
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (application as NeoApplication).setarPresenca()
     }
 }

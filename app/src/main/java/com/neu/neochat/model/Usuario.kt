@@ -8,7 +8,8 @@ data class Usuario(
     var email: String = "",
     var phone: String = "",
     val photoUrl : String = "",
-    val status : String = ""
+    val status : String = "",
+    val token : String = ""
 ) {
 
     @Exclude

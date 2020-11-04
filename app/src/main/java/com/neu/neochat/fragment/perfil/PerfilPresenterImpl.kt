@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -27,6 +28,7 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
 
     override fun startDatabaseListen() {
         if (!myUserDatabaseListen) {
+            meyUserDatabase.keepSynced(true)
             meyUserDatabase.addValueEventListener(this)
             myUserDatabaseListen = true
         }
@@ -46,6 +48,11 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
                 else {
 
                     user.name = name
+
+                    val builder = UserProfileChangeRequest.Builder()
+                    builder.displayName = user.name
+                    currentUser!!.updateProfile(builder.build())
+
                     meyUserDatabase.setValue(user).addOnSuccessListener {
                         perfilView.fecharBottomSheet()
                     }

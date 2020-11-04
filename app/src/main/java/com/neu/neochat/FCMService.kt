@@ -78,10 +78,11 @@ class FCMService : FirebaseMessagingService() {
                 }
 
                 val builder = NotificationCompat.Builder(applicationContext, notificationChannelId)
-
                 builder.setSmallIcon(R.mipmap.ic_launcher_round)
                     .setContentTitle(data["title"])
                     .setContentText(data["body"])
+                    .setAutoCancel(true)
+                    .setVibrate(longArrayOf(500, 500))
                     .setContentIntent(pendingIntent)
 
                 notificationManager.notify(toInt(data["remetente"].toString()), builder.build())

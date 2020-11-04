@@ -34,6 +34,7 @@ class ContatosPresenterImpl(private val contatosView: ContatosView) : ContatosPr
     //override ContatosPresenter
 
     override fun startDatabseListen() {
+        myContatosDatabase.keepSynced(true)
         myContatosDatabase.addChildEventListener(this)
     }
 

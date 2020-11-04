@@ -24,7 +24,7 @@ class NeoApplication : Application() {
         super.onCreate()
     }
 
-    fun startPresenceDetector() {
+    fun setarPresenca() {
 
         FirebaseAuth.getInstance().currentUser?.let { user ->
             val userRef = Firebase.database.reference.child(Usuario.CHILD)
@@ -39,18 +39,14 @@ class NeoApplication : Application() {
     private fun detectarOnline(userRef: DatabaseReference) {
         val map = HashMap<String, Any>()
         map["status"] = "online"
-        userRef.updateChildren(map).addOnCompleteListener {
-            detectarOffline(userRef)
-        }
+        userRef.updateChildren(map)
     }
 
     private fun detectarOffline(userRef: DatabaseReference) {
         val map = HashMap<String, Any>()
         map["status"] = "off-line"
 
-        userRef.onDisconnect().updateChildren(map).addOnCompleteListener {
-            detectarOnline(userRef)
-        }
+        userRef.onDisconnect().updateChildren(map)
     }
     private val myUserDatabase: DatabaseReference
         get() = FirebaseDatabase.getInstance().reference

@@ -156,9 +156,12 @@ class InicioPresenterImpl(private val inicioView: InicioView) : InicioPresenter,
 
             val databaseUser = snapshot.getValue<Usuario>()
 
-            val databaseUserName: String = databaseUser!!.name
+            var databaseUserName: String = databaseUser!!.name
 
-            if (databaseUserName.trim().isEmpty()) {
+            while (databaseUserName.contains("."))
+                databaseUserName = databaseUserName.replace(".", "")
+
+            if (databaseUserName.trim().isEmpty() || currentUser!!.displayName?.trim()?.isEmpty() != false) {
                 inicioView.setVisibilityConfigBtn(View.VISIBLE)
                 inicioView.setVisibilityProgressBar(View.GONE)
 

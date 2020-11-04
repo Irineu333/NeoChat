@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
-import com.google.firebase.auth.ActionCodeSettings
 import com.neu.neochat.NeoApplication
 import com.neu.neochat.R
 import com.neu.neochat.fragment.perfil.PerfilBottomSheet
@@ -101,7 +100,7 @@ class InicioFragment : Fragment(), View.OnClickListener, InicioView, PerfilBotto
     override fun navegarParaContatosFragment() {
 
         //inicia detector de presença (online/offline)
-        getApplication().startPresenceDetector()
+        getApplication().setarPresenca()
 
         getApplication().updateToken()
 

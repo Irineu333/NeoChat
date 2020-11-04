@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
+import com.neu.neochat.NeoApplication
 import com.neu.neochat.R
 import com.neu.neochat.activity.MainActivity
 import com.neu.neochat.model.Contato
@@ -58,6 +59,11 @@ class MessagesFragment : Fragment(), MessagesView, View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         messagesPresenter.stopDatabaseListen()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ((requireActivity() as MainActivity).application as NeoApplication).setarPresenca()
     }
 
     override fun showToast(s: String, length: Int) {
