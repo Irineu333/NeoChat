@@ -10,7 +10,7 @@ O projeto utiliza a Arquitetura MVP (Model View Presenter) que visa uma melhor s
 
 ## Single Activity
 
-Seguindo as recomendações da Google, o projeto é `Single Activity`, possuindo apenas uma Atividade que gerencia as telas através de `Fragmenst`, usando `Navigation Component Architecture` e `Safe Args` para navegação entre elas.
+Seguindo as recomendações da Google, o projeto é `Single Activity`, possuindo apenas uma Atividade que gerencia as telas através de `Fragments`, usando `Navigation Component Architecture` e `Safe Args` para navegação entre elas.
 
 ### Linguagens
 
