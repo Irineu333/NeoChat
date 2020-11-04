@@ -2,6 +2,8 @@ Um chat simples utlizando as tecnologias do Firebase, como Firebase Authenticati
 
 ### Arquitetura
 
+Um aplicativo sem uma arquitetura é apenas mais um aplicativo. Uma arquitetura não apenas deixa o projeto mais profissional, como também o torna mais legível por outros desenvolvedores e facilita a manutenção. Sendo assim o NeoChat está na arquitetura MVP e Navigation Component. 
+
 ## MVP
 
 O projeto utiliza a Arquitetura MVP (Model View Presenter) que visa uma melhor separação de responsabilidades, visualização e regra de negócio, utlizando interfaces.
