@@ -35,4 +35,4 @@ A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions
 # Download
 
 Clone e contribua com o projeto em [Projeto NeoChat](https://github.com/Irineu333/NeoChat)
-Baixe o apk e o projeto em [Releases](https://github.com/Irineu333/NeoChat/releases)
+<br/>Baixe o apk e o projeto em [Releases](https://github.com/Irineu333/NeoChat/releases)
