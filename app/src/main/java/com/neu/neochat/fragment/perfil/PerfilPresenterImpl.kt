@@ -28,7 +28,6 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
 
     override fun startDatabaseListen() {
         if (!myUserDatabaseListen) {
-            meyUserDatabase.keepSynced(true)
             meyUserDatabase.addValueEventListener(this)
             myUserDatabaseListen = true
         }
@@ -48,6 +47,7 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
                 else {
 
                     user.name = name
+                    user.phone = currentUser!!.phoneNumber ?: ""
 
                     val builder = UserProfileChangeRequest.Builder()
                     builder.displayName = user.name
@@ -81,6 +81,7 @@ class PerfilPresenterImpl(private val perfilView: PerfilView) : PerfilPresenter,
     //override ValueEventListener
 
     override fun onDataChange(snapshot: DataSnapshot) {
+
         myUserDatabaseObject = snapshot.getValue<Usuario>()
         myUserDatabaseObject?.let { user ->
             perfilView.carregarFotoPerfil(Uri.parse(user.photoUrl))
