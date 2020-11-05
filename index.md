@@ -16,12 +16,13 @@ Seguindo as recomendações da Google, o projeto é `Single Activity`, possuindo
 
 A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions usa `JavaScript` com `Node.js 12`
 
-#login usando FirebaseUI
+#### InicioPresenterImpl () : InicioPresenter
 ```kotlin
-## InicioPresenterImpl
-  override fun requireLogin() {
+    override fun requireLogin() {
 
-        inicioView.setVisibilityProgressBar(View.INVISIBLE)
+        inicioView.setVisibilityProgressBar(
+            View.INVISIBLE
+        )
 
         val providers = arrayListOf(
             AuthUI.IdpConfig.GoogleBuilder().build(),
@@ -31,9 +32,12 @@ A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions
 
         inicioView.requireLogin(providers)
     }
-    
-## InicioFragment
-  override fun requireLogin(providers: List<AuthUI.IdpConfig>) {
+```
+#### InicioFragment() : InicioView
+```kotlin
+    override fun requireLogin(
+        providers: List<AuthUI.IdpConfig>
+    ) {
 
         startActivityForResult(
             AuthUI.getInstance()
