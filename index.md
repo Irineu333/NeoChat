@@ -14,10 +14,11 @@ Seguindo as recomendações da Google, o projeto é `Single Activity`, possuindo
 
 ## Linguagens
 
-A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions usa `JavaScript` com Node.js 12
+A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions usa `JavaScript` com `Node.js 12`
 
 #login usando FirebaseUI
 ```kotlin
+## InicioPresenterImpl
   override fun requireLogin() {
 
         inicioView.setVisibilityProgressBar(View.INVISIBLE)
@@ -30,9 +31,22 @@ A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions
 
         inicioView.requireLogin(providers)
     }
+    
+## InicioFragment
+  override fun requireLogin(providers: List<AuthUI.IdpConfig>) {
+
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setLogo(R.mipmap.ic_launcher)
+                .build(),
+            requestCodeLogin
+        )
+    }
 ```
 
 # Download
 
-Clone e contribua com o projeto em [Projeto NeoChat](https://github.com/Irineu333/NeoChat)
-<br/>Baixe o apk e o projeto em [Releases](https://github.com/Irineu333/NeoChat/releases)
+Fork ou clone e contribua com o projeto em [Projeto NeoChat](https://github.com/Irineu333/NeoChat)
+<br/>Baixe o projeto ou instale o apk em [Releases](https://github.com/Irineu333/NeoChat/releases)
