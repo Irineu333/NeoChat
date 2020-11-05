@@ -16,7 +16,7 @@ Seguindo as recomendações da Google, o projeto é `Single Activity`, possuindo
 
 A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions usa `JavaScript` com `Node.js 12`
 
-#### InicioPresenterImpl () : InicioPresenter
+##### InicioPresenterImpl () : InicioPresenter
 ```kotlin
     override fun requireLogin() {
 
@@ -33,7 +33,7 @@ A aplicação é 100% desenvolvida em `Kotlin`, enquanto o back-end do Functions
         inicioView.requireLogin(providers)
     }
 ```
-#### InicioFragment() : InicioView
+##### InicioFragment() : InicioView
 ```kotlin
     override fun requireLogin(
         providers: List<AuthUI.IdpConfig>
